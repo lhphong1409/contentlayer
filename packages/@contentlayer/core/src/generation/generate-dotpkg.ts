@@ -131,7 +131,9 @@ const successCallback = (onSuccess: SuccessCallback | undefined) => {
     T.tapSync((path) => console.log('successCallback', path)),
     T.chain((generatedPkgPath) =>
       T.tryCatchPromise(
-        () => onSuccess(() => import(filePathJoin(generatedPkgPath, 'generated', 'index.mjs'))),
+        () => onSuccess(
+          () => import(URL.pathToFileURL(filePathJoin(generatedPkgPath, 'generated', 'index.mjs')).href)
+        ),
         (error) => new SuccessCallbackError({ error }),
       ),
     ),
