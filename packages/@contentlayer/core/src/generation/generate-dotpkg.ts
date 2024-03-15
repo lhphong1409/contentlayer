@@ -6,7 +6,7 @@ import type { GetContentlayerVersionError } from '@contentlayer/utils/node'
 import { getContentlayerVersion } from '@contentlayer/utils/node'
 import { camelCase } from 'camel-case'
 import type { PackageJson } from 'type-fest'
-
+import * as URL from "url"
 import { ArtifactsDir } from '../ArtifactsDir.js'
 import type { HasCwd } from '../cwd.js'
 import { getCwd } from '../cwd.js'
